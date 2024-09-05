@@ -1,0 +1,35 @@
+def get_integers_from_user():
+    # Prompt user to enter the number of integers they want to input
+    while True:
+        try:
+            n = int(input("How many integers would you like to enter? "))
+            if n <= 0:
+                print("Please enter a positive integer.")
+            else:
+                break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+    # List to store the integers
+    integers_list = []
+
+    # Collect `n` integers from the user
+    for i in range(n):
+        while True:
+            try:
+                # Ask user for an integer
+                user_input = input(f"Enter integer {i + 1}: ")
+                # Convert input to integer
+                integer_value = int(user_input)
+                # Add integer to the list
+                integers_list.append(integer_value)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
+
+    return integers_list
+
+# Example usage
+if __name__ == "__main__":
+    result = get_integers_from_user()
+    print("The integers you entered are:", result)
